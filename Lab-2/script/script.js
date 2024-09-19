@@ -127,33 +127,6 @@ function updateButtonImages() {
   });
 }
 
-//form menu states and universities logic
-const stateSelect = document.getElementById('inputState');
-const universitySelect = document.getElementById('inputUniversity');
-  
-stateSelect.addEventListener('change', function() {
-
-const selectedState = this.value;
-
-for (const optgroup of universitySelect.querySelectorAll('optgroup')) {
-
-  optgroup.style.display = 'none';
-
-}
-
-const optgroupToShow = universitySelect.querySelector(`optgroup[data-state="${selectedState}"]`);
-
-  if (optgroupToShow) {
-
-    optgroupToShow.style.display = 'block';
-
-  }
-  
-  universitySelect.disabled = false;
-
-});
-
-
 //form validation
 (() => {
   'use strict'
