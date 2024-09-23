@@ -52,9 +52,21 @@ header, .section-1 {
   
 }
 
-.btn-success {
+.signin-btn, .join-btn {
 
   background-color: #3A814E;
+  
+}
+
+.signin-btn{
+
+  width: 80px;
+  font-size: 20px;
+  height: 40px;
+}
+
+.join-btn{
+
   width: 180px;
   font-size: 20px;
 
@@ -544,8 +556,4 @@ header, .section-1 {
 
   background-color: #F9F9F9;
 
-}
-.signin-btn {
-  height: 60%;
-  width: 20%;
 }
