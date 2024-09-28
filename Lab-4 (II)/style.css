@@ -1,0 +1,70 @@
+.flex {
+    display: flex;
+}
+.main-container {
+    flex-flow: column wrap;
+    height: 100vh;
+    border: 1px solid black;
+}
+
+.header, .footer {
+    background-color: #C7C7C7;
+    height: 20%;
+}
+.main {
+    height: 59%;
+    background-color: #FAFAFA;
+}
+
+.form {
+    flex-wrap: wrap;
+    margin: 3%;
+    height: 100%;
+}
+
+.left-panel {
+    flex-flow: column wrap;
+    background-color: #4DB6E3;
+    padding: 3%;
+    width: 35%;
+    height: 100%;
+}
+
+input {
+    background-color: #75CCEE;
+    height: 8%;
+    margin: 3px;
+    border: none;
+}
+
+::placeholder {
+    color: #FFFFFF;
+}
+
+button {
+    background-color: #75CCEE;
+    color: #FFFFFF;
+    border: none;
+    height: 8%;
+    margin: 3px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+h1 {
+    color: #FFFFFF;
+}
+
+.right-panel {
+    background-color: orange;
+    width: 65%;
+}
+
+.header {
+    background-color: firebrick;
+}
+.footer {
+    background-color: blue;
+}
