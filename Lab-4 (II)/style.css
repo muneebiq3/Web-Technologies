@@ -1,31 +1,35 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
 .flex {
     display: flex;
 }
+
 .main-container {
     flex-flow: column wrap;
-    height: 100vh;
-    border: 1px solid black;
+    justify-content: space-between;
 }
 
 .header, .footer {
-    background-color: #C7C7C7;
+    background-color: #C7C7C7;  
 }
 .header {
-    height: 25%;
+    height: 14%;
 }
+
 .footer {
-    height: 15%;
+    height: 11%;
 }
 
-.main {
-    height: 59%;
+.main-form {
+    margin: 3.7%;
     background-color: #FAFAFA;
-}
-
-.form {
     flex-wrap: wrap;
-    margin: 3%;
-    height: 100%;
+    height: 60%;
 }
 
 .left-panel {
@@ -33,19 +37,20 @@
     background-color: #4DB6E3;
     padding: 3%;
     width: 35%;
-    height: 90%;
 }
 
 input {
     background-color: #75CCEE;
+    width: 100%;
     height: 8%;
-    margin: 3px;
+    margin-bottom: 3%;
     border: none;
 }
 
 input::placeholder {
     color: #FFFFFF;
-    padding-left: 1%;
+    font-size: 90%;
+    padding-left: 2%;
 }
 
 button {
@@ -61,38 +66,44 @@ button:hover {
 }
 
 h1 {
+    font-size: 130%;
     color: #FFFFFF;
 }
 
 .right-panel {
-    background-color: orange;
+ 
+    border: 1px solid #DFDCDD;
     flex-flow: column wrap;
-    width: 55%;
-    height: 100%;
+    width: 58.7%;
 }
 
 .right-header {
     justify-content: center;
     padding: 3%;
-    gap: 10px;
     font-size: 130%;
     color: #FFFFFF;
 }
+
 .right-header-item {
+    margin: 1%;
     width: 45px;
     height: 45px; 
     justify-content: center;
     align-items: center;
 }
+
 .blue-box { 
     background-color: #395a91;
 }
+
 .light-blue-box {
     background-color: #08B5E0;
 }
+
 .pink-box {
     background-color: #FF69B4;
 }
+
 .gray-box {
     background-color: #605F5F;
 }
