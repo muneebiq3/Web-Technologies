@@ -45,6 +45,7 @@ input {
     height: 8%;
     margin-bottom: 3%;
     border: none;
+    color: #FFFFFF;
 }
 
 input::placeholder {
@@ -106,4 +107,33 @@ h1 {
 
 .gray-box {
     background-color: #605F5F;
+}
+
+.input-container {
+    padding: 0%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.input-container i{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: #4DB6E3;
+    font-size: 130%;
+    height: 100%;
+    width: 3%;
+    padding: 1%;
+    border: 1px solid #CCCCCC;
+}
+
+.input-container input {
+    background-color: white;
+    color: #000000;
+    border:1px solid #CCCCCC;
+    font-size: 105%;
+    height: 100%;
+    width: 97%;
+    padding: 1%;
+    outline: none;
 }
