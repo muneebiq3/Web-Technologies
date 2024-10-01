@@ -27,6 +27,14 @@ header {
     width: 30%;
 }
 
+i {
+    font-size: 1.5rem;
+}
+
+h1{
+    font-size: 3rem;
+}
+
 section h1 {
     text-align: right;
     font-size: 6rem;
