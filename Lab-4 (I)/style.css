@@ -1,45 +1,75 @@
 * {
-    background-color: #1F1F1F;
+    background-color: #202020;
     color: #FFFFFF;
 }
-
-.main-container {
-    flex-flow: column wrap;
-    border: 1px solid white;
+main {
     height: 100vh;
-    width: 100%;
 }
-.text-item {
-    height: 30%;
-}
-.scientific-btn {
-    height: 10%;
-    border: 1px solid blue;
-}
-.other-btn {
-    height: 48%;
-    border: 1px solid blue;
-}
-.header, .main-container, .flex-left, .text-item  {
+
+.flex {
     display: flex;
 }
-.flex-left {
+main {
+    flex-direction: column;
+    gap: 0.2%;
+}
+header {
+    flex-wrap: nowrap;
     justify-content: space-between;
-    flex-wrap: wrap;
-    width: 15%;
+    height: 10%;
+}
+.constant {
+    height: 20%;
 }
 
-.header {
+.header-left {
     justify-content: space-between;
-    flex-wrap: wrap;
+    width: 30%;
 }
 
-.text-item {
-    flex-direction: column-reverse;
-    align-items: flex-end;
+section h1 {
+    text-align: right;
 }
-
-.text-item input {
+.m-btn-group {
+    justify-content: space-between;
+    height: 3%;
+}
+.second-btn-group, .third-btn-group, .fourth-btn-group, .fifth-btn-group , .sixth-btn-group , .seventh-btn-group  {
+    justify-content: space-between;
+    height: 6%;
+}
+.m-btn, .color-1, .color-2, .color-3 {
     border: none;
-    font-size: 50px;
+    border-radius: 5px;
+}
+.m-btn {
+    width: 16.6%;
+}
+.m-btn-grey {
+    color: #6E6E6E;
+}
+.m-btn-white:hover {
+    background-color: #2D2D2D;
+}
+.color-1, .color-2, .color-3 {
+    width: 24.7%;
+}
+.color-1 {
+    background-color: #3B3B3B;
+}
+.color-2 {
+    background-color: #323232;
+}
+.color-3 {
+    background-color: #7D8D96;
+    color: #202426;
+}
+.color-1:hover {
+    background-color: #323232;
+}
+.color-2:hover {
+    background-color: #3B3B3B;
+}
+.color-3:hover {
+    background-color: #73818A;
 }
