@@ -72,10 +72,10 @@ h1 {
 }
 
 .right-panel {
- 
     border: 1px solid #DFDCDD;
     flex-flow: column wrap;
     width: 58.7%;
+    justify-content: space-around;
 }
 
 .right-header {
@@ -110,7 +110,6 @@ h1 {
 }
 
 .input-container {
-    padding: 0%;
     margin-left: 10%;
     margin-right: 10%;
 }
@@ -132,8 +131,15 @@ h1 {
     color: #000000;
     border:1px solid #CCCCCC;
     font-size: 105%;
-    height: 100%;
-    width: 97%;
     padding: 1%;
     outline: none;
+}
+select {
+    width: 100%;
+    padding: 1%;
+    border: 1px solid #CCCCCC;
+}
+textarea {
+    margin-top: 3%;
+    border: 1px solid #CCCCCC;
 }
