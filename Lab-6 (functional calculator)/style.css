@@ -22,21 +22,10 @@ a, i {
     font-size: 3rem;
 }
 
-.m-btn-group {
-    height: 3%;
-}
 .second-btn-group, .third-btn-group, .fourth-btn-group, .fifth-btn-group , .sixth-btn-group , .seventh-btn-group  {
     height: 6%;
 }
-.m-btn {
-    width: 16.6%;
-}
-.m-btn-grey {
-    color: #6E6E6E;
-}
-.m-btn-white:hover {
-    background-color: #2D2D2D;
-}
+
 .color-1, .color-2, .color-3 {
     width: 24.7%;
 }
