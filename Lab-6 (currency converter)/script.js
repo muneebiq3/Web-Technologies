@@ -1,143 +1,56 @@
-let currentInput = '0'; // Stores the current number being input
-let operator = ''; // Stores the last operator clicked
-let previousInput = ''; // Stores the previous number input
-let result = 0; // Stores the result of the ongoing operation
-let isCalculated = false; // To track if the last action was '='
+const exchangeRates = {
+    USD: { USD: 1, EUR: 0.85, GBP: 0.75, PKR: 276.79, JPY: 110 },
+    EUR: { USD: 1.18, EUR: 1, GBP: 0.88, PKR: 301.06, JPY: 130 },
+    GBP: { USD: 1.33, EUR: 1.14, GBP: 1, PKR: 362.1, JPY: 145 },
+    PKR: { USD: 0.0036, EUR: 0.0033, GBP: 0.0028, PKR: 1, JPY: 0.54 },
+    JPY: { USD: 0.0091, EUR: 0.0077, GBP: 0.0069, PKR: 1.86, JPY: 1 }
+};
 
-const display = document.getElementById('display'); // The main display for the current number/result
-const preview = document.getElementById('preview'); // The preview display for showing the ongoing operation
+function updateExchangeRate() {
+    const fromCurrency = document.getElementById('fromCurrency').value;
+    const toCurrency = document.getElementById('toCurrency').value;
+    const rate = exchangeRates[fromCurrency][toCurrency];
+    const rateInput = document.getElementById('exchangeRateInput');
 
-// Update both the preview and main display
-function updateDisplay() {
-  // Update the main display with the current input or result
-  display.textContent = currentInput || '0';
-
-  // If we have an operator and previous input, show the full operation in the preview
-  if (operator && previousInput) {
-    preview.textContent = `${previousInput} ${operator} ${currentInput !== '' ? currentInput : ''}`;
-  } else {
-    preview.textContent = currentInput; // Default case, just show the current input
-  }
+    if (rate) {
+        rateInput.value = rate.toFixed(4);
+    } else {
+        rateInput.value = ''; 
+    }
 }
 
-// Append number to the current input
-function appendNumber(number) {
-  if (currentInput === '0' || isCalculated) {
-    currentInput = number.toString(); // Replace the current input after a result
-    isCalculated = false;
-  } else {
-    currentInput += number.toString();
-  }
-  updateDisplay();
+function convertCurrency(amount, fromCurrency, toCurrency) {
+    const rate = exchangeRates[fromCurrency][toCurrency];
+    return amount * rate;
 }
 
-// Append decimal point
-function appendDecimal() {
-  if (!currentInput.includes('.')) {
-    currentInput += '.';
-    updateDisplay();
-  }
+document.getElementById('fromCurrency').addEventListener('change', updateExchangeRate);
+document.getElementById('toCurrency').addEventListener('change', updateExchangeRate);
+
+document.getElementById('convertBtn').addEventListener('click', function() {
+    const amount = parseFloat(document.getElementById('amount').value);
+    const fromCurrency = document.getElementById('fromCurrency').value;
+    const toCurrency = document.getElementById('toCurrency').value;
+
+    if (isNaN(amount) || amount <= 0) {
+        alert('Please enter a valid amount');
+        return;
+    }
+
+    const convertedValue = convertCurrency(amount, fromCurrency, toCurrency);
+    document.getElementById('result').innerText = `Converted amount: ${convertedValue.toFixed(2)} ${toCurrency}`;
+});
+
+function switchCurrencies() {
+
+    const fromCurrency = document.getElementById('fromCurrency');
+    const toCurrency = document.getElementById('toCurrency');
+
+    const temp = fromCurrency.value;
+    fromCurrency.value = toCurrency.value;
+    toCurrency.value = temp;
+
+    updateExchangeRate();
 }
 
-// Clear the current entry (CE button)
-function clearEntry() {
-  currentInput = '0';
-  updateDisplay();
-}
-
-// Clear everything (C button)
-function clearAll() {
-  currentInput = '0';
-  previousInput = '';
-  operator = '';
-  result = 0;
-  isCalculated = false;
-  updateDisplay();
-}
-
-// Toggle positive/negative sign
-function toggleSign() {
-  currentInput = (parseFloat(currentInput) * -1).toString();
-  updateDisplay();
-}
-
-// Add operator and store previous input
-function addOperator(op) {
-  if (previousInput && operator && currentInput !== '') {
-    // If there's already an operator and previous input, calculate the result first
-    calculate();
-  }
-
-  operator = op; // Set the operator
-  previousInput = currentInput; // Store the current input as the previous input
-  currentInput = ''; // Clear the current input so the next number can be entered
-  isCalculated = false; // We're in the middle of a calculation
-  updateDisplay(); // Update both the display and preview to show the operator
-}
-
-// Perform the calculation when '=' or another operator is clicked after the second operand
-function calculate() {
-  if (!previousInput) return; // Skip if no previous input
-
-  const prev = parseFloat(previousInput);
-  const current = parseFloat(currentInput) || prev; // Use the current input or fallback to previous input
-
-  switch (operator) {
-    case '+':
-      result = prev + current;
-      break;
-    case '-':
-      result = prev - current;
-      break;
-    case 'X':
-      result = prev * current;
-      break;
-    case '÷':
-      result = prev / current;
-      break;
-    default:
-      return;
-  }
-
-  currentInput = result.toString(); // Display the result as the new current input
-  previousInput = ''; // Clear previous input after calculation
-  operator = ''; // Clear the operator
-  isCalculated = true; // Mark that the calculation is complete
-  updateDisplay();
-}
-
-// Handle what happens when '=' is clicked
-function handleEquals() {
-  if (previousInput && operator) {
-    calculate(); // Perform the calculation
-
-    // Show the full operation in the preview (e.g., "9 + 9 =")
-    preview.textContent = `${previousInput} ${operator} ${currentInput} =`;
-
-    // Mark that calculation has completed, ready for new input
-    isCalculated = true;
-  }
-}
-
-// Handle special operations like square root and reciprocal
-function operate(op) {
-  let result;
-  const current = parseFloat(currentInput);
-
-  switch (op) {
-    case 'sqrt':
-      result = Math.sqrt(current);
-      break;
-    case 'square':
-      result = Math.pow(current, 2);
-      break;
-    case '1/x':
-      result = 1 / current;
-      break;
-    default:
-      return;
-  }
-
-  currentInput = result.toString();
-  updateDisplay();
-}
+document.getElementById('switchCurrenciesBtn').addEventListener('click', switchCurrencies);
