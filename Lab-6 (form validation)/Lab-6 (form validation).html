@@ -21,6 +21,7 @@
             .form-control::placeholder {
                 color: white;
             }
+
         </style>
 
     </head>
@@ -37,7 +38,11 @@
 
                     <div class="right-panel col-xl-6 col-12 p-5">
 
-                        <p class="display-6 text-uppercase text-white fw-bold">Student Registration Form</p>
+                        <div class="row">
+
+                            <p class="display-6 text-uppercase text-white fw-bold ps-0">Student Registration Form</p>
+                            
+                        </div>
 
                         <div class="row my-4">
 
@@ -64,28 +69,28 @@
 
                         </div>
 
-                        <div class="row my-4">
+                        <div class="row my-4 d-flex justify-content-between radiobtn">
 
-                            <label class="form-label text-white fw-bold">Gender:</label>
+                            <label class="form-label text-white h5 fw-bold ps-0">Gender:</label>
 
-                            <div class="col-3 d-flex align-items-center">
+                            <div class="col-3 d-flex align-items-center ps-0">
 
                                 <input type="radio" id="female" name="gender" value="female" style="background-color: #424242;" required>
-                                <label for="female" class="text-white h5 ms-2">Female</label>
+                                <label for="female" class="text-white h6 ms-2 mt-1">Female</label>
 
                             </div>
 
-                            <div class="col-3 d-flex align-items-center">
+                            <div class="col-3 d-flex align-items-center ps-0">
 
                                 <input type="radio" id="male" name="gender" value="male" style="background-color: #424242;" required>
-                                <label for="male" class="text-white h5 ms-2">Male</label>
+                                <label for="male" class="text-white h6 ms-2 mt-1">Male</label>
 
                             </div>
 
-                            <div class="col-3 d-flex align-items-center">
+                            <div class="col-3 d-flex align-items-center ps-0">
 
                                 <input type="radio" id="other" name="gender" value="other" style="background-color: #424242;" required>
-                                <label for="other" class="text-white h5 ms-2">Other</label>
+                                <label for="other" class="text-white h6 ms-2 mt-1">Other</label>
 
                             </div>
                             
@@ -146,6 +151,7 @@
                             <div class="col-4"></div>
 
                             <div class="col-8 d-flex justify-content-end">
+
                                 <button type="reset" class="btn btn-light me-2 mt-5">Reset All</button>
                                 <button type="submit" class="btn btn-warning text-white mt-5">Submit Form</button>
 
