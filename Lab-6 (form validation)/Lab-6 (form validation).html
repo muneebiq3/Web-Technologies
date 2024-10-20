@@ -17,6 +17,12 @@
             crossorigin="anonymous"
         />
 
+        <style>
+            .form-control::placeholder {
+                color: white;
+            }
+        </style>
+
     </head>
 
     <body class="m-0 p-0">
@@ -38,7 +44,7 @@
                             <div class="col-6">
 
                                 <label for="firstName" class="form-label text-white fw-bold">First Name</label>
-                                <input type="text" placeholder="First Name" class="form-control text-white border" id="firstName" required>
+                                <input type="text" placeholder="First Name" class="form-control text-white border" id="firstName" style="background-color: #424242;" required>
                                 <div class="invalid-feedback">First name must contain only letters and be at least 2 characters long.</div>
 
                             </div>
@@ -46,7 +52,7 @@
                             <div class="col-6">
 
                                 <label for="lastName" class="form-label text-white fw-bold">Last Name</label>
-                                <input type="text" placeholder="Last Name" class="form-control text-white border" id="lastName" required>
+                                <input type="text" placeholder="Last Name" class="form-control text-white border" id="lastName" style="background-color: #424242;" required>
                                 <div class="invalid-feedback">Last name must contain only letters and be at least 2 characters long.</div>
 
                             </div>
@@ -56,7 +62,8 @@
                         <div class="row my-5">
 
                             <label for="address" class="form-label text-white fw-bold">Address</label>
-                            <input type="text" placeholder="Address" class="form-control text-white border" id="address" required>
+                            <input type="text" placeholder="Address" class="form-control text-white border" id="address" style="background-color: #424242;" required>
+                            <div class="invalid-feedback">Please provide your address</div>
 
                         </div>
 
@@ -66,21 +73,21 @@
 
                             <div class="col-3 d-flex align-items-center">
 
-                                <input type="radio" id="female" name="gender" value="female" required>
+                                <input type="radio" id="female" name="gender" value="female" style="background-color: #424242;" required>
                                 <label for="female" class="text-white h5 ms-2">Female</label>
 
                             </div>
 
                             <div class="col-3 d-flex align-items-center">
 
-                                <input type="radio" id="male" name="gender" value="male" required>
+                                <input type="radio" id="male" name="gender" value="male" style="background-color: #424242;" required>
                                 <label for="male" class="text-white h5 ms-2">Male</label>
 
                             </div>
 
                             <div class="col-3 d-flex align-items-center">
 
-                                <input type="radio" id="other" name="gender" value="other" required>
+                                <input type="radio" id="other" name="gender" value="other" style="background-color: #424242;" required>
                                 <label for="other" class="text-white h5 ms-2">Other</label>
 
                             </div>
@@ -91,7 +98,7 @@
 
                             <label for="stateSelect" class="form-label text-white fw-bold">State</label>
 
-                            <select id="stateSelect" class="form-select text-white border" required>
+                            <select id="stateSelect" class="form-select text-white border" style="background-color: #424242;" required>
 
                                 <option value="" disabled selected>Choose...</option>
                                 <option value="balochistan">Balochistan</option>
@@ -110,7 +117,7 @@
 
                             <label for="citySelect" class="form-label text-white fw-bold">City</label>
 
-                            <select id="citySelect" class="form-select text-white border" required>
+                            <select id="citySelect" class="form-select text-white border" style="background-color: #424242;" required>
 
                                 <option value="" disabled selected>City</option>
 
@@ -123,7 +130,7 @@
                         <div class="row my-5">
 
                             <label for="pincode" class="form-label text-white fw-bold">Pincode</label>
-                            <input type="password" class="form-control text-white border" id="pincode" placeholder="Pincode" required>
+                            <input type="password" class="form-control text-white border" id="pincode" placeholder="Pincode" style="background-color: #424242;" required>
                             <div class="invalid-feedback">Please set the pincode</div>
 
                         </div>
@@ -131,15 +138,15 @@
                         <div class="row my-5">
 
                             <label for="course" class="form-label text-white fw-bold">Course</label>
-                            <input type="text" class="form-control text-white border" id="course" placeholder="Course" required>
-                            <div class="invalid-feedback">Please set the course</div>
+                            <input type="text" class="form-control text-white border" id="course" placeholder="Course" style="background-color: #424242;" required>
+                            <div class="invalid-feedback">Please describe the course</div>
 
                         </div>
 
                         <div class="row my-5">
 
                             <label for="email" class="form-label text-white fw-bold">Email ID</label>
-                            <input type="email" class="form-control text-white border" id="email" placeholder="Email ID" required>
+                            <input type="email" class="form-control text-white border placeholder-white" id="email" placeholder="Email ID" style="background-color: #424242;" required>
                             <div class="invalid-feedback">Please provide the valid email</div>
 
                         </div>
@@ -157,7 +164,7 @@
                         </div>
 
                     </div>
-                    
+
                 </form>
 
             </div>

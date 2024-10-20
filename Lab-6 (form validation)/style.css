@@ -1,11 +1,3 @@
-form, input, select, option{
+form{
     background-color: #424242;
-}
-
-input, select, option {
-    height: 40px;
-}
-
-input::placeholder {
-    color: white;
 }
