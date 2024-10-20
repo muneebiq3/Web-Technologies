@@ -10,12 +10,12 @@ function updateExchangeRate() {
     const fromCurrency = document.getElementById('fromCurrency').value;
     const toCurrency = document.getElementById('toCurrency').value;
     const rate = exchangeRates[fromCurrency][toCurrency];
-    const rateInput = document.getElementById('exchangeRateInput');
+    const rateLabel = document.getElementById('exchangeRateInput');
 
     if (rate) {
-        rateInput.value = rate.toFixed(4);
+        rateLabel.textContent = `Exchange Rate: ${rate.toFixed(4)}`;
     } else {
-        rateInput.value = ''; 
+        rateLabel.textContent = "Exchange Rate: 'N/A'"; 
     }
 }
 

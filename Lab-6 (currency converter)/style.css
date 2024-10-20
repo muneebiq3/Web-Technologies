@@ -1,11 +1,14 @@
+body, html {
+    overflow: hidden;
+}
+
 .container-fluid,form {
     background-color: #00539C;
 }
 
-/* .display-5 {
-    color: #FFD662;
-} */
-
 form {
-    height: 50vh;
+    height: 100vh;
 }
+
+
+
