@@ -1,29 +1,25 @@
-let currentInput = '0'; // Stores the current number being input
-let operator = ''; // Stores the last operator clicked
-let previousInput = ''; // Stores the previous number input
-let result = 0; // Stores the result of the ongoing operation
-let isCalculated = false; // To track if the last action was '='
+let currentInput = '0';
+let operator = '';
+let previousInput = '';
+let result = 0;
+let isCalculated = false;
 
-const display = document.getElementById('display'); // The main display for the current number/result
-const preview = document.getElementById('preview'); // The preview display for showing the ongoing operation
+const display = document.getElementById('display');
+const preview = document.getElementById('preview');
 
-// Update both the preview and main display
 function updateDisplay() {
-  // Update the main display with the current input or result
   display.textContent = currentInput || '0';
 
-  // If we have an operator and previous input, show the full operation in the preview
   if (operator && previousInput) {
     preview.textContent = `${previousInput} ${operator} ${currentInput !== '' ? currentInput : ''}`;
   } else {
-    preview.textContent = currentInput; // Default case, just show the current input
+    preview.textContent = currentInput;
   }
 }
 
-// Append number to the current input
 function appendNumber(number) {
   if (currentInput === '0' || isCalculated) {
-    currentInput = number.toString(); // Replace the current input after a result
+    currentInput = number.toString();
     isCalculated = false;
   } else {
     currentInput += number.toString();
@@ -31,7 +27,6 @@ function appendNumber(number) {
   updateDisplay();
 }
 
-// Append decimal point
 function appendDecimal() {
   if (!currentInput.includes('.')) {
     currentInput += '.';
@@ -39,13 +34,11 @@ function appendDecimal() {
   }
 }
 
-// Clear the current entry (CE button)
 function clearEntry() {
   currentInput = '0';
   updateDisplay();
 }
 
-// Clear everything (C button)
 function clearAll() {
   currentInput = '0';
   previousInput = '';
@@ -55,32 +48,28 @@ function clearAll() {
   updateDisplay();
 }
 
-// Toggle positive/negative sign
 function toggleSign() {
   currentInput = (parseFloat(currentInput) * -1).toString();
   updateDisplay();
 }
 
-// Add operator and store previous input
 function addOperator(op) {
   if (previousInput && operator && currentInput !== '') {
-    // If there's already an operator and previous input, calculate the result first
     calculate();
   }
 
-  operator = op; // Set the operator
-  previousInput = currentInput; // Store the current input as the previous input
-  currentInput = ''; // Clear the current input so the next number can be entered
-  isCalculated = false; // We're in the middle of a calculation
-  updateDisplay(); // Update both the display and preview to show the operator
+  operator = op;
+  previousInput = currentInput;
+  currentInput = '';
+  isCalculated = false;
+  updateDisplay();
 }
 
-// Perform the calculation when '=' or another operator is clicked after the second operand
 function calculate() {
-  if (!previousInput) return; // Skip if no previous input
+  if (!previousInput) return;
 
   const prev = parseFloat(previousInput);
-  const current = parseFloat(currentInput) || prev; // Use the current input or fallback to previous input
+  const current = parseFloat(currentInput) || prev;
 
   switch (operator) {
     case '+':
@@ -99,27 +88,23 @@ function calculate() {
       return;
   }
 
-  currentInput = result.toString(); // Display the result as the new current input
-  previousInput = ''; // Clear previous input after calculation
-  operator = ''; // Clear the operator
-  isCalculated = true; // Mark that the calculation is complete
+  currentInput = result.toString();
+  previousInput = '';
+  operator = '';
+  isCalculated = true;
   updateDisplay();
 }
 
-// Handle what happens when '=' is clicked
 function handleEquals() {
   if (previousInput && operator) {
-    calculate(); // Perform the calculation
+    calculate();
 
-    // Show the full operation in the preview (e.g., "9 + 9 =")
     preview.textContent = `${previousInput} ${operator} ${currentInput} =`;
 
-    // Mark that calculation has completed, ready for new input
     isCalculated = true;
   }
 }
 
-// Handle special operations like square root and reciprocal
 function operate(op) {
   let result;
   const current = parseFloat(currentInput);
